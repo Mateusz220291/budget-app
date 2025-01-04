@@ -1,8 +1,8 @@
-import "./Overview.css";
+import "./HeaderOverview.css";
 
-import RecurringBills from "./RecurringBills";
-import Transactions from "./Transactions";
-import Tile from "./Tile";
+import RecurringBills from "../../components/RecurringBills/RecurringBills";
+import Transactions from "../../components/Transactions/Transactions";
+import Tile from "../../components/Tile";
 
 const Overview = () => {
   return (

@@ -1,17 +1,11 @@
-// import React from 'react';
-import Sidebar from "./components/Sidebar/Sidebar";
-import Overview from "./components/Overview/Overview";
+import OverviewPage from "./pages/OverviewPage";
 
 import "./App.css";
 
 const App = () => {
   return (
     <div className="app">
-      <Sidebar />
-      <main>
-        <Overview />
-        <div className="details-section"></div>
-      </main>
+      <OverviewPage />
     </div>
   );
 };
