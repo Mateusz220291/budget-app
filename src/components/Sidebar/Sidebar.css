@@ -1,0 +1,36 @@
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.sidebar ul li.active {
+  font-weight: bold;
+  color: #ff5a5a;
+}
+
+.minimize-btn {
+  margin-top: auto;
+  background: #ff5a5a;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}

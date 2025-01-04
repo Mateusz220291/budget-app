@@ -1,0 +1,25 @@
+.balance-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-main {
+  display: flex;
+  flex: column;
+}
+
+.overview-left-column {
+  flex: 3;
+  background-color: lightblue;
+}
+
+.overview-right-column {
+  flex: 2;
+  background-color: lightcoral;
+}
