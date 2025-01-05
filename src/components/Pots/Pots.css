@@ -1,0 +1,34 @@
+.pots {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pots h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.pots-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pot-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+}
+
+.pot-item .amount {
+  font-weight: bold;
+  color: #333;
+}

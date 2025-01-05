@@ -1,25 +1,10 @@
-.balance-info {
+.header-overview {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.overview {
-  display: flex;
-  flex-direction: column;
-}
-
-.overview-main {
-  display: flex;
-  flex: column;
-}
-
-.overview-left-column {
-  flex: 3;
-  background-color: lightblue;
-}
-
-.overview-right-column {
-  flex: 2;
-  background-color: lightcoral;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

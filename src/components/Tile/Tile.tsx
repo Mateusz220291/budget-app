@@ -1,4 +1,4 @@
-// import "./Tile.css";
+import "./Tile.css";
 
 interface TileProps {
   title: string;
@@ -7,8 +7,8 @@ interface TileProps {
 const Tile: React.FC<TileProps> = ({ title, price }) => {
   return (
     <div className="tile">
-      <h3>{title}</h3>
-      <p>{price}</p>
+      <span className="tile-title">{title}</span>
+      <h3 className="tile-value">{price}</h3>
     </div>
   );
 };

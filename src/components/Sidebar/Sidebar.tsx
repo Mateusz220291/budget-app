@@ -1,18 +1,20 @@
-// import './Sidebar.css';
+import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <h2>finance</h2>
-      <ul>
-        <li className="active">Overview</li>
-        <li>Transactions</li>
-        <li>Budgets</li>
-        <li>Pots</li>
-        <li>Recurring Bills</li>
-      </ul>
-      <button className="minimize-btn">Minimize Menu</button>
-    </div>
+    <aside className="sidebar">
+      <div className="logo">Nasze finanse</div>
+      <nav className="menu">
+        <ul>
+          <li className="menu-item active">Przegląd</li>
+          <li className="menu-item">Wydatki</li>
+          <li className="menu-item">Budżet</li>
+          <li className="menu-item">Oszczędności</li>
+          <li className="menu-item">Rachunki Cykliczne</li>
+        </ul>
+      </nav>
+      <button className="minimize-btn">zwiń Menu</button>
+    </aside>
   );
 };
 
