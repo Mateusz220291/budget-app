@@ -9,6 +9,7 @@ const OverviewPage = () => {
   return (
     <div className="overview-page">
       <div className="main-content">
+        <h1>Przegląd finansów</h1>
         <HeaderOverview />
         <div className="sections">
           <div className="left-column">
