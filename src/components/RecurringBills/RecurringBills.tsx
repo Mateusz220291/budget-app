@@ -3,19 +3,19 @@ import "./RecurringBills.css";
 const RecurringBills = () => {
   return (
     <section className="recurring-bills">
-      <h2>Recurring Bills</h2>
+      <h2>Rachunki cykliczne</h2>
       <div className="bills-overview">
         <div className="bill-item">
-          <span>Paid Bills</span>
-          <span className="amount">$190.00</span>
+          <span>Czynsz</span>
+          <span className="amount">530 PLN</span>
         </div>
         <div className="bill-item">
-          <span>Total Upcoming</span>
-          <span className="amount">$194.98</span>
+          <span>Prąd</span>
+          <span className="amount">230 PLN</span>
         </div>
         <div className="bill-item">
-          <span>Due Soon</span>
-          <span className="amount">$59.98</span>
+          <span>Internet + TV</span>
+          <span className="amount">60 PLN</span>
         </div>
       </div>
     </section>

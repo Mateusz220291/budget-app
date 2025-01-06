@@ -1,4 +1,5 @@
 import "./Sidebar.css";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -6,11 +7,56 @@ const Sidebar = () => {
       <div className="logo">Nasze finanse</div>
       <nav className="menu">
         <ul>
-          <li className="menu-item active">Przegląd</li>
-          <li className="menu-item">Wydatki</li>
-          <li className="menu-item">Budżet</li>
-          <li className="menu-item">Oszczędności</li>
-          <li className="menu-item">Rachunki Cykliczne</li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "menu-item active" : "menu-item"
+              }
+            >
+              Przegląd
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/transactions"
+              className={({ isActive }) =>
+                isActive ? "menu-item active" : "menu-item"
+              }
+            >
+              Wydatki
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/budget"
+              className={({ isActive }) =>
+                isActive ? "menu-item active" : "menu-item"
+              }
+            >
+              Budżet
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/pots"
+              className={({ isActive }) =>
+                isActive ? "menu-item active" : "menu-item"
+              }
+            >
+              Oszczędności
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/recurringBills"
+              className={({ isActive }) =>
+                isActive ? "menu-item active" : "menu-item"
+              }
+            >
+              Rachunki cykliczne
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <button className="minimize-btn">zwiń Menu</button>
