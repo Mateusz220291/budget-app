@@ -6,8 +6,13 @@
   background-color: #202020;
   color: #fff;
   width: 250px;
+  overflow: hidden;
 }
 
+.sidebar.collapsed {
+  width: 60px;
+  flex: 0 0 60px;
+}
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -44,7 +49,7 @@
   color: #fff;
   border: none;
   padding: 10px;
-  margin: 20px;
+  margin: 15px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
