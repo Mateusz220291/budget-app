@@ -102,6 +102,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
                 <option value="zakupy">Zakupy</option>
                 <option value="transport">Transport</option>
                 <option value="zdrowie">Zdrowie</option>
+                <option value="inne">Inne</option>
               </select>
             </div>
             <div className="form-group">

@@ -5,6 +5,7 @@
 
 th,
 td {
+  background-color: #fff;
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -12,4 +13,27 @@ td {
 th {
   background-color: #f4f4f4;
   font-weight: bold;
+  background-color: #fff;
+}
+
+.total-sum {
+  padding: 20px;
+  text-align: right;
+}
+
+td:first-child {
+  border-left: 8px solid transparent;
+}
+
+tr.category-shopping td:first-child {
+  border-left: 8px solid darkblue;
+}
+tr.category-transport td:first-child {
+  border-left: 8px solid darkgreen;
+}
+tr.category-other td:first-child {
+  border-left: 8px solid darkgoldenrod;
+}
+tr.category-health td:first-child {
+  border-left: 8px solid maroon;
 }

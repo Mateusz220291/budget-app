@@ -48,12 +48,17 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
         <div>
           <Button
             variant="secondary"
+            size="small"
             onClick={() => onEdit(row.original)}
             style={{ marginRight: "10px" }}
           >
             Edytuj
           </Button>
-          <Button variant="danger" onClick={() => onDelete(row.original.id)}>
+          <Button
+            variant="danger"
+            size="small"
+            onClick={() => onDelete(row.original.id)}
+          >
             Usuń
           </Button>
         </div>
@@ -72,6 +77,21 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
     (sum, transaction) => sum + transaction.amount,
     0
   );
+
+  const getCategoryClass = (category: string) => {
+    switch (category) {
+      case "transport":
+        return "category-transport";
+      case "zdrowie":
+        return "category-health";
+      case "zakupy":
+        return "category-shopping";
+      case "inne":
+        return "category-other";
+      default:
+        return "category-other";
+    }
+  };
 
   return (
     <div>
@@ -92,7 +112,10 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <tr
+              key={row.id}
+              className={getCategoryClass(row.original.category)}
+            >
               {row.getVisibleCells().map((cell) => (
                 <td key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
