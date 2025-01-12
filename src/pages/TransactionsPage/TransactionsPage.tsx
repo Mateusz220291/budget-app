@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "../../components/Modal/Modal";
 import { Transaction } from "./types";
 import TransactionsTable from "../../components/Table/TransactionsTable";
+import Button from "../../components/Button/Button";
 
 const TransactionsPage: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -78,7 +79,9 @@ const TransactionsPage: React.FC = () => {
         onDelete={deleteTransaction}
       />
 
-      <button onClick={openModal}>Dodaj wydatek</button>
+      <Button variant="primary" onClick={openModal}>
+        Dodaj wydatek
+      </Button>
 
       <Modal
         isOpen={isModalOpen}

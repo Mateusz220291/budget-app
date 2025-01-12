@@ -6,6 +6,7 @@ import {
   ColumnDef,
 } from "@tanstack/react-table";
 import { Transaction } from "../../pages/TransactionsPage/types";
+import Button from "../Button/Button";
 import "./TransactionsTable.css";
 
 interface TransactionsTableProps {
@@ -45,8 +46,16 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
       header: "Akcje",
       cell: ({ row }) => (
         <div>
-          <button onClick={() => onEdit(row.original)}>Edytuj</button>
-          <button onClick={() => onDelete(row.original.id)}>Usuń</button>
+          <Button
+            variant="secondary"
+            onClick={() => onEdit(row.original)}
+            style={{ marginRight: "10px" }}
+          >
+            Edytuj
+          </Button>
+          <Button variant="danger" onClick={() => onDelete(row.original.id)}>
+            Usuń
+          </Button>
         </div>
       ),
     },

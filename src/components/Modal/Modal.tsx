@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Transaction } from "../../pages/TransactionsPage/types"; // Zaimportuj typ Transaction
+import { Transaction } from "../../pages/TransactionsPage/types"; //
+// Zaimportuj typ Transaction
 import "./Modal.css";
+import Button from "../../components/Button/Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -36,8 +38,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
       });
       setName(""); // Resetujemy pola po submit
       setAmount(""); // Resetujemy kwotę
-      setCategory("zakupy");
-      setSpender("Kinga");
+      setCategory("");
+      setSpender("");
       setDate(""); // Resetujemy datę
       onClose();
     }
@@ -94,6 +96,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
                 onChange={(e) => setCategory(e.target.value)}
                 required
               >
+                <option value="" disabled>
+                  Wybierz kategorię:
+                </option>
                 <option value="zakupy">Zakupy</option>
                 <option value="transport">Transport</option>
                 <option value="zdrowie">Zdrowie</option>
@@ -108,6 +113,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
                 onChange={(e) => setSpender(e.target.value)}
                 required
               >
+                <option value="" disabled>
+                  Wybierz osobę:
+                </option>
                 <option value="Kinga">Kinga</option>
                 <option value="Mateusz">Mateusz</option>
               </select>
@@ -123,9 +131,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
                 required
               />
             </div>
-            <button type="submit" className="btn-submit">
+            <Button type="submit" variant="primary">
               Dodaj
-            </button>
+            </Button>
           </form>
         </div>
       </div>
