@@ -1,46 +1,56 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Transaction } from "../../pages/TransactionsPage/types"; //
-// Zaimportuj typ Transaction
 import "./Modal.css";
 import Button from "../../components/Button/Button";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: Omit<Transaction, "id">) => void; // Przekazujemy dane bez 'id'
+  onSubmit: (data: Omit<Transaction, "id">) => void;
   initialData: Transaction | null;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState<number | "">(""); // Stan może być stringiem lub numberem
-  const [category, setCategory] = useState("");
-  const [spender, setSpender] = useState("");
-  const [date, setDate] = useState<string>(""); // Nowe pole na datę
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  initialData,
+}) => {
+  const [name, setName] = useState(initialData?.name || "");
+  const [amount, setAmount] = useState<number | "">(initialData?.amount || "");
+  const [category, setCategory] = useState(initialData?.category || "");
+  const [spender, setSpender] = useState(initialData?.spender || "");
+  const [date, setDate] = useState<string>(initialData?.date || "");
 
-  if (!isOpen) return null; // Jeśli modal nie jest otwarty, nic nie wyświetlamy
+  useEffect(() => {
+    setName(initialData?.name || "");
+    setAmount(initialData?.amount || "");
+    setCategory(initialData?.category || "");
+    setSpender(initialData?.spender || "");
+    setDate(initialData?.date || "");
+  }, [initialData]);
+
+  if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Sprawdzamy, czy amount jest pustym ciągiem czy liczbą i konwertujemy to na float
     const parsedAmount =
       typeof amount === "string" ? parseFloat(amount) : amount;
 
-    // Wysyłamy dane tylko jeśli wszystkie pola są wypełnione poprawnie
     if (name && parsedAmount && category && spender && date) {
       onSubmit({
         name,
         amount: parsedAmount,
         category,
         spender,
-        date, // Dodajemy datę do wysyłanych danych
+        date,
       });
-      setName(""); // Resetujemy pola po submit
-      setAmount(""); // Resetujemy kwotę
+      setName("");
+      setAmount("");
       setCategory("");
       setSpender("");
-      setDate(""); // Resetujemy datę
+      setDate("");
       onClose();
     }
   };
@@ -48,9 +58,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (value === "") {
-      setAmount(""); // Pozwól na pusty ciąg
+      setAmount("");
     } else if (!isNaN(Number(value))) {
-      setAmount(Number(value)); // Konwertuj na liczbę
+      setAmount(Number(value));
     }
   };
 
@@ -58,7 +68,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>Dodaj Wydatek</h2>
+          <h2>{initialData ? "Edytuj Wydatek" : "Dodaj Wydatek"}</h2>
           <button className="modal-close-btn" onClick={onClose}>
             &times;
           </button>
@@ -82,7 +92,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
                 type="number"
                 id="amount"
                 name="amount"
-                value={amount === "" ? "" : amount} // Umożliwia puste pole
+                value={amount === "" ? "" : amount}
                 onChange={handleAmountChange}
                 required
               />
@@ -143,64 +153,3 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
 };
 
 export default Modal;
-
-// import "./Modal.css";
-
-// interface ModalProps {
-//   isOpen: boolean;
-//   onClose: () => void;
-//   onSubmit: (data: { name: string; amount: number; category: string }) => void;
-// }
-
-// const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
-//   if (!isOpen) return null;
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.target as HTMLFormElement);
-//     const name = formData.get("name") as string;
-//     const amount = parseFloat(formData.get("amount") as string);
-//     const category = formData.get("category") as string;
-
-//     onSubmit({ name, amount, category });
-//     onClose();
-//   };
-
-//   return (
-//     <div className="modal-overlay" onClick={onClose}>
-//       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-//         <div className="modal-header">
-//           <h2>Dodaj Wydatek</h2>
-//           <button className="modal-close-btn" onClick={onClose}>
-//             &times;
-//           </button>
-//         </div>
-//         <div className="modal-body">
-//           <form onSubmit={handleSubmit}>
-//             <div className="form-group">
-//               <label htmlFor="name">Nazwa wydatku:</label>
-//               <input type="text" id="name" name="name" required />
-//             </div>
-//             <div className="form-group">
-//               <label htmlFor="amount">Kwota:</label>
-//               <input type="number" id="amount" name="amount" required />
-//             </div>
-//             <div className="form-group">
-//               <label htmlFor="category">Kategoria:</label>
-//               <select id="category" name="category" required>
-//                 <option value="zakupy">Zakupy</option>
-//                 <option value="transport">Transport</option>
-//                 <option value="zdrowie">Zdrowie</option>
-//               </select>
-//             </div>
-//             <button type="submit" className="btn-submit">
-//               Dodaj
-//             </button>
-//           </form>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Modal;

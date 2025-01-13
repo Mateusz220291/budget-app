@@ -1,4 +1,3 @@
-import React from "react";
 import {
   useReactTable,
   flexRender,
@@ -11,8 +10,8 @@ import "./TransactionsTable.css";
 
 interface TransactionsTableProps {
   transactions: Transaction[];
-  onEdit: (transaction: Transaction) => void; // Funkcja do edytowania transakcji
-  onDelete: (id: number) => void; // Funkcja do usuwania transakcji
+  onEdit: (transaction: Transaction) => void;
+  onDelete: (id: number) => void;
 }
 
 const TransactionsTable: React.FC<TransactionsTableProps> = ({

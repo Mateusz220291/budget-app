@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../../components/Modal/Modal";
 import { Transaction } from "./types";
 import TransactionsTable from "../../components/Table/TransactionsTable";
@@ -12,24 +12,22 @@ const TransactionsPage: React.FC = () => {
     null
   );
 
-  // 1. Ładujemy dane z localStorage przy pierwszym renderze komponentu
   useEffect(() => {
     const storedTransactions = localStorage.getItem("transactions");
     if (storedTransactions) {
-      setTransactions(JSON.parse(storedTransactions)); // Parsujemy dane JSON i ustawiamy stan
+      setTransactions(JSON.parse(storedTransactions));
     }
   }, []);
 
-  // 2. Zapisujemy dane do localStorage po każdej zmianie w stanie transactions
   useEffect(() => {
     if (transactions.length > 0) {
-      localStorage.setItem("transactions", JSON.stringify(transactions)); // Zapisujemy dane w localStorage
+      localStorage.setItem("transactions", JSON.stringify(transactions));
     }
   }, [transactions]);
 
   const openModal = () => {
     setIsModalOpen(true);
-    setEditTransaction(null); // Resetowanie edycji przed dodaniem nowej transakcji
+    setEditTransaction(null);
   };
 
   const closeModal = () => {
@@ -40,7 +38,6 @@ const TransactionsPage: React.FC = () => {
     newTransactionData: Omit<Transaction, "id">
   ) => {
     if (editTransaction) {
-      // Edytowanie transakcji
       const updatedTransactions = transactions.map((transaction) =>
         transaction.id === editTransaction.id
           ? { ...editTransaction, ...newTransactionData }
@@ -48,10 +45,9 @@ const TransactionsPage: React.FC = () => {
       );
       setTransactions(updatedTransactions);
     } else {
-      // Dodawanie nowej transakcji
       const newTransaction = {
         ...newTransactionData,
-        id: transactions.length + 1, // Możesz zmienić sposób generowania id
+        id: Date.now(),
       };
       setTransactions([...transactions, newTransaction]);
     }
@@ -88,7 +84,7 @@ const TransactionsPage: React.FC = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
         onSubmit={addOrEditTransaction}
-        initialData={editTransaction} // Przekazujemy transakcję do edycji, jeśli jest
+        initialData={editTransaction}
       />
     </div>
   );
