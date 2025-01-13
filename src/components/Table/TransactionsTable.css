@@ -35,5 +35,11 @@ tr.category-other td:first-child {
   border-left: 8px solid darkgoldenrod;
 }
 tr.category-health td:first-child {
+  border-left: 8px solid darkmagenta;
+}
+tr.category-entertainment td:first-child {
+  border-left: 8px solid darkorange;
+}
+tr.category-eat-out td:first-child {
   border-left: 8px solid maroon;
 }

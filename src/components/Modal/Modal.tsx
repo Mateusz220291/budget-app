@@ -112,6 +112,8 @@ const Modal: React.FC<ModalProps> = ({
                 <option value="zakupy">Zakupy</option>
                 <option value="transport">Transport</option>
                 <option value="zdrowie">Zdrowie</option>
+                <option value="rozrywka">Rozrywka</option>
+                <option value="jedzenie na mieście">Jedzenie na mieście</option>
                 <option value="inne">Inne</option>
               </select>
             </div>

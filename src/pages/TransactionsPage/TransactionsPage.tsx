@@ -4,6 +4,7 @@ import { Transaction } from "./types";
 import TransactionsTable from "../../components/Table/TransactionsTable";
 import Button from "../../components/Button/Button";
 import "./TransactionsPage.css";
+import TransactionsPieChart from "../../components/Charts/TransactionsPieChart";
 
 const TransactionsPage: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -79,6 +80,8 @@ const TransactionsPage: React.FC = () => {
       <Button variant="primary" onClick={openModal}>
         Dodaj wydatek
       </Button>
+
+      <TransactionsPieChart transactions={transactions}></TransactionsPieChart>
 
       <Modal
         isOpen={isModalOpen}

@@ -87,6 +87,10 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
         return "category-shopping";
       case "inne":
         return "category-other";
+      case "jedzenie na mieście":
+        return "category-eat-out";
+      case "rozrywka":
+        return "entertainment";
       default:
         return "category-other";
     }
