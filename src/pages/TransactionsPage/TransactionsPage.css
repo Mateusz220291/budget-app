@@ -7,3 +7,42 @@
   height: 100vh;
   background-color: #f8f8f8;
 }
+
+.transaction-page-title {
+  margin-bottom: 20px;
+}
+
+.transaction-page-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.left-column {
+  /* flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; */
+}
+
+.summary-and-button {
+  /* max-width: 200px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; */
+}
+
+.right-column {
+  /* flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.right-column canvas {
+  max-width: 100%;
+  height: auto;
+}

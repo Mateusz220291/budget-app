@@ -70,18 +70,24 @@ const TransactionsPage: React.FC = () => {
   return (
     <div className="transaction-page-container">
       <h1 className="transaction-page-title">Wydatki</h1>
+      <div className="transaction-page-content">
+        <div className="left-column">
+          <TransactionsTable
+            transactions={transactions}
+            onEdit={editTransactionHandler}
+            onDelete={deleteTransaction}
+          />
 
-      <TransactionsTable
-        transactions={transactions}
-        onEdit={editTransactionHandler}
-        onDelete={deleteTransaction}
-      />
-
-      <Button variant="primary" onClick={openModal}>
-        Dodaj wydatek
-      </Button>
-
-      <TransactionsPieChart transactions={transactions}></TransactionsPieChart>
+          <Button variant="primary" onClick={openModal}>
+            Dodaj wydatek
+          </Button>
+        </div>
+        <div className="right-column">
+          <TransactionsPieChart
+            transactions={transactions}
+          ></TransactionsPieChart>
+        </div>
+      </div>
 
       <Modal
         isOpen={isModalOpen}
