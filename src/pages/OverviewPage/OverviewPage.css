@@ -18,14 +18,14 @@
 }
 
 .left-column {
-  flex: 3; /* Zajmuje większą część przestrzeni */
+  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .right-column {
-  flex: 2; /* Mniejsza kolumna */
+  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 20px;

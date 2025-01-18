@@ -78,7 +78,11 @@ const TransactionsPage: React.FC = () => {
             onDelete={deleteTransaction}
           />
 
-          <Button variant="primary" onClick={openModal}>
+          <Button
+            variant="primary"
+            onClick={openModal}
+            style={{ width: "auto", maxWidth: "200px" }}
+          >
             Dodaj wydatek
           </Button>
         </div>
