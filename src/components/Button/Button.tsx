@@ -1,10 +1,9 @@
-import React from "react";
-import "./Button.css"; // Plik stylów dla naszego przycisku
+import "./Button.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "danger"; // Typ przycisku
+  variant?: "primary" | "secondary" | "danger";
   size?: "small" | "medium" | "large";
-  children: React.ReactNode; // Tekst lub elementy w środku przycisku
+  children: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({

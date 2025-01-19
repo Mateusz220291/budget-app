@@ -71,7 +71,6 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
     getCoreRowModel: getCoreRowModel(),
   });
 
-  // Obliczanie sumy wydatków
   const totalAmount = transactions.reduce(
     (sum, transaction) => sum + transaction.amount,
     0

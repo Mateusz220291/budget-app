@@ -9,9 +9,8 @@
   display: inline-block;
 }
 
-/* Style dla różnych wariantów */
 .button.primary {
-  background-color: #4caf50; /* Zielony */
+  background-color: #4caf50;
   color: white;
 }
 
@@ -20,7 +19,7 @@
 }
 
 .button.secondary {
-  background-color: #2196f3; /* Niebieski */
+  background-color: #2196f3;
   color: white;
 }
 
@@ -29,7 +28,7 @@
 }
 
 .button.danger {
-  background-color: #e91e63; /* Różowa magenta */
+  background-color: #e91e63;
   color: white;
 }
 
