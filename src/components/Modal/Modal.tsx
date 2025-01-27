@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Transaction } from "../../pages/TransactionsPage/types"; //
+import { Transaction } from "../../pages/TransactionsPage/types";
+// import { RecurringBill } from "../../pages/RecurringBillsPage/types";
 import "./Modal.css";
 import Button from "../../components/Button/Button";
 
