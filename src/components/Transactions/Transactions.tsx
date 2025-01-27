@@ -1,23 +1,28 @@
+import { Link } from "react-router-dom";
+import { Transaction } from "../../pages/TransactionsPage/types";
 import "./Transactions.css";
 
-const Transactions = () => {
+interface TransactionsProps {
+  transactions: Transaction[];
+}
+
+const Transactions: React.FC<TransactionsProps> = ({ transactions }) => {
+  const recentTransactions = transactions.slice(-4).reverse();
+
   return (
     <section className="transactions">
-      <h2>Transactions</h2>
+      <h2>Ostatnie transakcje</h2>
       <ul>
-        <li className="transaction-item">
-          <span className="name">Emma Richardson</span>
-          <span className="amount positive">+$75.50</span>
-        </li>
-        <li className="transaction-item">
-          <span className="name">Savory Bites Bistro</span>
-          <span className="amount negative">-$55.50</span>
-        </li>
-        <li className="transaction-item">
-          <span className="name">Urban Services Hub</span>
-          <span className="amount negative">-$65.00</span>
-        </li>
+        {recentTransactions.map((transaction) => (
+          <li className="transaction-item" key={transaction.id}>
+            <span className="name">{transaction.name}</span>
+            <span className="amount ">{transaction.amount} PLN</span>
+          </li>
+        ))}
       </ul>
+      <Link to="/transactions" className="see-more">
+        Zobacz więcej szczegółów
+      </Link>
     </section>
   );
 };

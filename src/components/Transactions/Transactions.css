@@ -28,12 +28,10 @@
 
 .amount {
   font-weight: bold;
+  color: darkorange;
 }
 
-.amount.positive {
-  color: green;
-}
-
-.amount.negative {
-  color: red;
+.see-more {
+  text-decoration: none;
+  text-align: right;
 }
